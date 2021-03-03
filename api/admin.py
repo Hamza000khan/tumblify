@@ -1,10 +1,8 @@
 from django.contrib import admin
-from .models import Blog, Blogger, Images
+from .models import Blog, Blogger, Images, Blogs
 
-# admin.site.register(Blog)
 admin.site.register(Blogger)
-
-#
+# admin.site.register(Images)
 
 
 class PostImageAdmin(admin.StackedInline):
@@ -18,8 +16,3 @@ class PostAdmin(admin.ModelAdmin):
 
     class Meta:
         model = Blog
-
-
-@admin.register(Images)
-class PostImageAdmin(admin.ModelAdmin):
-    pass
