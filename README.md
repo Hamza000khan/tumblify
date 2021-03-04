@@ -22,7 +22,7 @@ $ py mange.py runserver
 
 Your app is running on: localhost:8000
 
-git clone
+git clone https://github.com/Hamza000khan/tumblify.git
 
 Features
 This is a project build on Python, Django3 and Django-Rest-Framework
