@@ -14,5 +14,5 @@ class Blog(models.Model):
         'auth.User', related_name='blog', on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.bookmark

@@ -7,11 +7,7 @@ urlpatterns = [
     path('users/<int:pk>/', views.UserDetail.as_view()),
 
 
-    # Get all_blogs for all authenticated Users
     path('blogs/', views.BlogList.as_view()),
-    # path('create-blog/', views.Create_Blog.as_view()),
-    # path('update-blog/<int:pk>/', views.Update_Blog.as_view()),
-
     path('blogs/<int:pk>/', views.BlogDetail.as_view()),
 ]
 
