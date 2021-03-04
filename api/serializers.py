@@ -1,47 +1,63 @@
 from rest_framework import serializers
-from .models import Blogger, Blog, Images, Blogs
+from django.contrib.auth.models import User
+from .models import Blog
 
 
-class Blogger_Serializer(serializers.ModelSerializer):
-    class Meta:
-        model = Blogger
-        fields = '__all__'
+class BlogSerializer(serializers.ModelSerializer):
+    Blogger = serializers.ReadOnlyField(source='owner.username')
 
-
-class Blog_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
         fields = '__all__'
 
 
-class Images_Serializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+    Blog = serializers.PrimaryKeyRelatedField(
+        many=True, queryset=Blog.objects.all())
+
     class Meta:
-        model = Images
+        model = User
         fields = '__all__'
 
 
-class Blogs_Serializer(serializers.ModelSerializer):
-    class Meta:
-        model = Blogs
-        fields = '__all__'
+# from rest_framework import serializers
+# from .models import Blogger, Blog, Images, Blogs
 
 
-# class Blogs_Serializer(serializers.Serializer):
-    # Blogger = serializers.SerializerMethodField()
-    # blog = serializers.SerializerMethodField()
-    # images = serializers.SerializerMethodField()
+# class Blogger_Serializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Blogger
+#         fields = '__all__'
 
-    # class Meta:
-    #     model = Blogs
-    #     fields = (
-    #         'blog',
-    #     )
 
-        # def get_Blogger(self, obj):
-        #     return Blogger_Serializer(obj)
+# class AttrPKField(serializers.PrimaryKeyRelatedField):
+#     def get_queryset(self):
+#         user = self.context['request'].user.id
+#         print(user)
+#         queryset = Blog.objects.filter(user=user)
+#         return queryset
 
-    # def get_blog(self, obj):
-    #     return Blog_Serializer(obj)
 
-        # def get_images(self, obj):
-        #     return Images_Serializer(obj.images.all(), many=True)
+# class Blog_Serializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = Blog
+#         fields = '__all__'
+
+
+# class Images_Serializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Images
+#         fields = '__all__'
+
+
+# class Blogs_Serializer(serializers.ModelSerializer):
+#     blog = serializers.PrimaryKeyRelatedField(
+#         many=True, queryset=Blog.objects.all())
+
+#     class Meta:
+#         model = Blogs
+#         fields = '__all__'
+
+#         # extra_fields = ['Bookmark']
+#         # exclude = (['images'])

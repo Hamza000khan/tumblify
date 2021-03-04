@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Blog, Blogger, Images, Blogs
+from .models import Blog,  Images
 
-admin.site.register(Blogger)
-# admin.site.register(Images)
+# admin.site.register(Blogger)
+# admin.site.register(Blogs)
 
 
 class PostImageAdmin(admin.StackedInline):
