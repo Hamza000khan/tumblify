@@ -37,20 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third Party Packages
     'rest_framework',
     'api.apps.ApiConfig',
 
-    # Third Party
-    # 'api',
-    # 'rest_framework',
-    # 'rest_framework.authtoken',
-    # 'rest_auth',
-    # 'django.contrib.sites',
-    # 'allauth',
-    # 'allauth.account',
-    # 'rest_auth.registration',
-    # 'rest_framework_swagger',
-    # 'api.apps.ApiConfig',
 ]
 
 
